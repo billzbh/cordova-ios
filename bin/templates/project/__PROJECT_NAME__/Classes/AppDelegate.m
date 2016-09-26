@@ -27,13 +27,32 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import <HXiMateSDK/iMateAppFace.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     self.viewController = [[MainViewController alloc] init];
+    //初始化iMaeAppFace
+    iMateAppFace *iMateFace = [iMateAppFace sharedController];
+    //创建iMate连接
+    [iMateFace openSession];
+    
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    // 进入后台时，关闭连接。
+    [[iMateAppFace sharedController] closeSession];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    // 回到前台后，重新建立连接。
+    [[iMateAppFace sharedController] openSession];
 }
 
 @end

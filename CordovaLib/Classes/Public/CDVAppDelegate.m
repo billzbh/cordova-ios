@@ -61,6 +61,19 @@
     // Set your app's start page by setting the <content src='foo.html' /> tag in config.xml.
     // If necessary, uncomment the line below to override it.
     // self.viewController.startPage = @"index.html";
+    
+//    //读取设置选项的服务地址
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *startPage = [defaults objectForKey:@"startPage"];
+//    if([self isBlankString:startPage])//如果为空字符串
+//    {
+//        NSLog(@"[setting url: %@]",@"是空字符串，使用默认值 index.html");
+//        self.viewController.startPage =@"index.html";
+//    }else{
+//        self.viewController.startPage = startPage;
+//    }
+//    NSLog(@"startPage ： [%@]",self.viewController.startPage);
+    
 
     // NOTE: To customize the view's frame size (which defaults to full screen), override
     // [self.viewController viewWillAppear:] in your view controller.

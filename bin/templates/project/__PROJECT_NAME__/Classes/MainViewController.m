@@ -67,6 +67,19 @@
 {
     // View defaults to full size.  If you want to customize the view's size, or its subviews (e.g. webView),
     // you can do so here.
+    static dispatch_once_t dist;
+    dispatch_once(&dist, ^{
+        
+        if([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0){
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+            CGRect rect = super.webView.frame;
+            NSLog(@"rect  = %@", NSStringFromCGRect(rect));
+            rect.origin.y += 20;
+            rect.size.height -= 20;
+            super.webView.frame = rect;
+            self.view.backgroundColor = [UIColor blackColor];
+        }
+    });
 
     [super viewWillAppear:animated];
 }

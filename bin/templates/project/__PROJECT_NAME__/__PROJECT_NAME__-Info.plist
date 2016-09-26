@@ -38,6 +38,7 @@
 	<array>
 		<string>audio</string>
 		<string>voip</string>
+		<string>external-accessory</string>
 		<string>bluetooth-central</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
